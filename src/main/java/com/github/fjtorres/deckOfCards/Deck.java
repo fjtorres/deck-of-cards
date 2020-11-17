@@ -1,7 +1,6 @@
 package com.github.fjtorres.deckOfCards;
 
 import java.util.*;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Class to represent a deck of cards.
@@ -10,7 +9,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class Deck<C extends Card> {
 
-    private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
     private final Random random = new Random();
     private final List<C> cards;
     private Stack<C> cardsStack;
