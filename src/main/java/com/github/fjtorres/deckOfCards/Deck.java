@@ -19,6 +19,7 @@ public class Deck<C extends Card> {
      * @param pCards Initial set of cards.
      */
     public Deck(List<C> pCards) {
+        validateInputCards(pCards);
         cards = new ArrayList<>(pCards);
         createStack(cards);
     }
@@ -70,6 +71,21 @@ public class Deck<C extends Card> {
      */
     public int size() {
         return cardsStack.size();
+    }
+
+    /**
+     * Validate input list of cards:
+     * - Cannot be null.
+     * - Cannot be empty.
+     *
+     * @param cards List of cards.
+     * @throws IllegalArgumentException If some constraint are not ok.
+     */
+    private void validateInputCards(List<C> cards) {
+
+        if (cards == null || cards.isEmpty()) {
+            throw new IllegalArgumentException("A list of cards is required to create a deck.");
+        }
     }
 
     /**

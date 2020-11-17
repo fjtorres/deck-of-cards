@@ -21,6 +21,18 @@ class DeckTest {
     }
 
     @Test
+    @DisplayName("Check if check throws an illegal argument exception for null list.")
+    public void checkIllegalArgumentForNullList() {
+        assertThrows(IllegalArgumentException.class, () -> new Deck<>(null));
+    }
+
+    @Test
+    @DisplayName("Check if check throws an illegal argument exception for empty list.")
+    public void checkIllegalArgumentForEmptyList() {
+        assertThrows(IllegalArgumentException.class, () -> new Deck<>(Collections.emptyList()));
+    }
+
+    @Test
     @DisplayName("Check if after deal all possible cards we don't have duplicated cards.")
     public void checkIfAfterDealAllCardsWeDoNotHaveDuplications() {
 
