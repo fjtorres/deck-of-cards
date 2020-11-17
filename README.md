@@ -15,6 +15,10 @@ You can run the application to see the random deck of cards printed directly to 
 
 The application contains unit test classes using JUnit as test framework.
 
+## CI
+
+The project is configured using GitHub actions to verify the app with Maven.
+
 ## How to use it
 
 To run the application you can execute the following command. 
