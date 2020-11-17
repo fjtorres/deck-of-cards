@@ -14,6 +14,7 @@ public class Card<V extends Enum<?>, S extends Enum<?>> {
     private final S suit;
 
     public Card(V value, S suit) {
+        validateInputParams(value, suit);
         this.value = value;
         this.suit = suit;
     }
@@ -38,6 +39,21 @@ public class Card<V extends Enum<?>, S extends Enum<?>> {
     @Override
     public int hashCode() {
         return Objects.hash(getValue(), getSuit());
+    }
+
+    /**
+     * Validate input params:
+     * - Value cannot be null.
+     * - Suit cannot be null.
+     *
+     * @param value Card value.
+     * @param suit  Card suite.
+     * @throws IllegalArgumentException If some constraint are not ok.
+     */
+    private void validateInputParams(V value, S suit) {
+        if (value == null || suit == null) {
+            throw new IllegalArgumentException("Value and suit are required to create a card.");
+        }
     }
 
     public V getValue() {

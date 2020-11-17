@@ -11,6 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class PokerCardTest {
 
     @Test
+    @DisplayName("Value cannot be null to create a card")
+    public void valueCannotBeNull() {
+        assertThrows(IllegalArgumentException.class, () -> new PokerCard(null, PokerSuit.DIAMONDS));
+    }
+
+    @Test
+    @DisplayName("Suit cannot be null to create a card")
+    public void suitCannotBeNull() {
+        assertThrows(IllegalArgumentException.class, () -> new PokerCard(PokerCardValue.ACE, null));
+    }
+
+    @Test
     @DisplayName("Two cards with the same value and suite should be equals")
     public void equalsCards() {
         assertEquals(PokerCardObjectMother.createDiamondAce(), PokerCardObjectMother.createDiamondAce());
