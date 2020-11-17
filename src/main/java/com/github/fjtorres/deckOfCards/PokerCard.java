@@ -32,4 +32,9 @@ public class PokerCard extends Card<PokerCardValue, PokerSuit> {
     public PokerCard(PokerCardValue value, PokerSuit suit) {
         super(value, suit);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s of %s", getValue(), getSuit().getSymbol());
+    }
 }
